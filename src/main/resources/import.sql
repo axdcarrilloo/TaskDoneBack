@@ -1,0 +1,3 @@
+INSERT INTO "public"."activity"("codigo", "estatus", "fecha_ejecucion", "dias_retraso", "id_responsable", "fecha_creacion", "fecha_modificacion") VALUES ('ACT001', 'PENDIENTE', '2022-04-20 12:00:00', 3, '12', '2022-04-18 14:00:00', null);
+INSERT INTO "public"."activity"("codigo", "estatus", "fecha_ejecucion", "dias_retraso", "id_responsable", "fecha_creacion", "fecha_modificacion") VALUES ('ACT002', 'PENDIENTE', '2022-04-20 12:00:00', 3, '12', '2022-04-18 14:00:00', null);
+INSERT INTO "public"."activity"("codigo", "estatus", "fecha_ejecucion", "dias_retraso", "id_responsable", "fecha_creacion", "fecha_modificacion") VALUES ('ACT003', 'REALIZADO', '2022-04-20 12:00:00', 3, '12', '2022-04-18 14:00:00', null);
