@@ -10,8 +10,8 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Entity(name = "activity")
-public class ActivityEntity {
+@Entity(name = "employees")
+public class EmployeeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,20 +20,20 @@ public class ActivityEntity {
     @Column(nullable = false, unique = true, length = 6)
     private String codigo;
 
-    @Column(nullable = false, length = 9)
-    private String estatus;
+    @Column(nullable = false)
+    private String nombre;
 
-    @Column(name = "fecha_ejecucion", nullable = false)
-    private Timestamp fechaEjecucion;
+    @Column(nullable = false)
+    private String apellido;
 
-    @Column(name = "dias_retraso", nullable = false)
-    private Integer diasRetraso;
+    @Column(nullable = false, unique = true)
+    private String cedula;
 
-    @Column(name = "responsable")
-    private Long responsable;
+    @Column(nullable = false)
+    private Integer edad;
 
-    @Column(name = "nombre_responsable")
-    private String nombreResponsable;
+    @Column(nullable = false)
+    private String celular;
 
     @Column(name = "fecha_creacion", nullable = false)
     private Timestamp fechaCreacion;
