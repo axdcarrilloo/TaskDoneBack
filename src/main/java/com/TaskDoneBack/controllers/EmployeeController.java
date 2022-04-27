@@ -30,4 +30,9 @@ public class EmployeeController {
         return new ResponseEntity<List<EmployeeEntity>>(employeeService.getAll(), HttpStatus.OK);
     }
 
+    @GetMapping(value = Route.EMPLOYEE_GETBYNOMBRE_ORCEDULA, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<EmployeeEntity>> getByNombreOrCedula(@PathVariable String consulta) {
+        return new ResponseEntity<List<EmployeeEntity>>(employeeService.getByNombreCedula(consulta), HttpStatus.OK);
+    }
+
 }

@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -16,14 +19,9 @@ public class ActivityService {
 
     public Integer calcularFecha(Timestamp fechaEjecucion) {
         Timestamp fechaActual = getCurrentDay();
-        Integer day = fechaEjecucion.getDate();
-        Integer dayAux = fechaActual.getDate();
-        Integer retraso = 0;
-        if(day > dayAux) {
-            retraso = day - dayAux;
-        }else{
-            retraso = dayAux - day;
-        }
+        LocalDate dateAfter = LocalDate.of(fechaActual.getYear(), fechaActual.getMonth(), fechaActual.getDate());
+        LocalDate dateBefore = LocalDate.of(fechaEjecucion.getYear(), fechaEjecucion.getMonth(), fechaEjecucion.getDate());
+        Integer retraso = Integer.parseInt(ChronoUnit.DAYS.between(dateBefore, dateAfter) + "");
         return retraso;
     }
 
@@ -55,6 +53,12 @@ public class ActivityService {
             result = 1l;
         }
         return result;
+    }
+
+    public List<ActivityEntity> getByCodigo(String codigo) {
+        List<ActivityEntity> listActivity = new ArrayList<ActivityEntity>();
+        listActivity.add(activityRepository.findByCodigo(codigo));
+        return listActivity;
     }
 
 }

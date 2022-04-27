@@ -1,6 +1,7 @@
 package com.TaskDoneBack.controllers;
 
 import com.TaskDoneBack.domain.entities.ActivityEntity;
+import com.TaskDoneBack.domain.entities.EmployeeEntity;
 import com.TaskDoneBack.services.ActivityService;
 import com.TaskDoneBack.utils.Route;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = Route.NAME_APP+Route.ACTIVITY_MAIN, produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = Route.NAME_APP+Route.ACTIVITY_MAIN)
 @CrossOrigin(origins = "*")
 public class ActivityController {
 
@@ -39,6 +40,11 @@ public class ActivityController {
     @GetMapping(value = Route.ACTIVITY_GETALL, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<ActivityEntity>> getAll() {
         return new ResponseEntity<List<ActivityEntity>>(activityService.getAll(), HttpStatus.OK);
+    }
+
+    @GetMapping(value = Route.ACTIVITY_GETBYCODIGO, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<ActivityEntity>> getByCodigo(@PathVariable String codigo) {
+        return new ResponseEntity<List<ActivityEntity>>(activityService.getByCodigo(codigo), HttpStatus.OK);
     }
 
 }

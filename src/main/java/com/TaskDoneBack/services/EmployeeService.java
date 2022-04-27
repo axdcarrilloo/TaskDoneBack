@@ -21,4 +21,8 @@ public class EmployeeService {
         return employeeRepository.findAll();
     }
 
+    public List<EmployeeEntity> getByNombreCedula(String consulta) {
+        return employeeRepository.getByNombreOrCedula(consulta);
+    }
+
 }
